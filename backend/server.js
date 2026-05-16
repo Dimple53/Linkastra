@@ -10,10 +10,11 @@ dotenv.config();
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 app.use(postRoutes);
 app.use(userRoutes);
 
-app.use(express.json());
+
 
 // console.log("ENV:", process.env.MONGO_URI);
 
