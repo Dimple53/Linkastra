@@ -1,3 +1,4 @@
+import { profile } from "console";
 import Profile from "../models/profile.model.js";
 import User from "../models/user.model.js";
 import bcrypt from "bcrypt";
@@ -27,7 +28,8 @@ export const register = async(req, res) => {
     await newUser.save(); 
 
     const profile = new Profile({ userId: newUser._id });
-    return res.status(201).json({ message: "User created" });
+    await profile.save();
+    return res.json({ message: "User created" });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -62,7 +64,7 @@ export const uploadProfilePicture = async (req, res) => {
   const { token } = req.body;
   
   try {
-    const user = await User.findOne({ token });
+    const user = await User.findOne({ token: token });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     } 
@@ -70,6 +72,76 @@ export const uploadProfilePicture = async (req, res) => {
     await user.save();
     return res.json({ message: "Profile picture updated" });
 
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+export const updateUserProfile = async (req, res) => {
+  
+  try {
+    const { token, ...newUserData } = req.body;
+
+    const user = await User.findOne({ token: token });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    const { username, email } = newUserData;
+
+    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+
+    if (existingUser) {
+      if (existingUser || String(existingUser._id) !== String(user._id)) {
+        return res.status(400).json({ message: "User already exists" });
+      }
+    }
+    Object.assign(user, newUserData);
+    await user.save();
+    return res.json({ message: "User Updated" });
+
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  } 
+};
+
+export const getUserAndProfile = async (req, res) => {  
+  try {
+    const { token } = req.body;
+    const user = await User.findOne({ token: token });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }  
+    console.log("USER:", user);
+    const userprofile = await Profile.findOne({ userId: user._id })
+      .populate("userId", "name email username profilePicture");
+    return res.json({ "profile": userprofile });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  } 
+};
+
+export const updateProfileData = async (req, res) => {
+  try {
+    const { token, ...newProfileData } = req.body;  
+    const userProfile = await User.findOne({ token: token });
+    if (!userProfile) {
+      return res.status(404).json({ message: "User not found" });
+    } 
+    const profile_to_update = await Profile.findOne({ userId: userProfile._id });
+    Object.assign(profile_to_update, newProfileData);
+    await profile_to_update.save();
+    return res.json({ message: "Profile Updated" });
+    }catch (error) {
+    return res.status(500).json({ message: error.message });
+    }
+};
+
+export const getAllUserProfile = async (req, res) => {  
+  try {
+    const profiles = await Profile.find()
+      .populate("userId", "name email username profilePicture");
+    return res.json({ "profiles": profiles });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

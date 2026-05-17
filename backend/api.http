@@ -2,10 +2,10 @@ POST http://localhost:3000/register HTTP/1.1
 content-Type: application/json
 
 {
-  "username": "dimple",
-  "password": "d123",
-  "email": "dimple@example.com",
-  "name": "Dimple"
+  "username": "aaravdev",
+  "password": "a123",
+  "email": "aarav@example.com",
+  "name": "Aarav Sharma"
 }
 
 ###
@@ -14,6 +14,46 @@ POST http://localhost:3000/login HTTP/1.1
 content-Type: application/json
 
 {
-  "email": "dimple@example.com",
-  "password": "d123"    
+  "email": "aarav@example.com",
+  "password": "a123"    
 }
+
+###
+GET http://localhost:3000/get_user_and_profile
+Content-Type: application/json
+
+{
+  "token": "5e601a31497d6526d8b9a480c048fecd3b4aa56a621577e59d17643e2570f42b"
+}
+
+###
+POST http://localhost:3000/update_profile_data
+Content-Type: application/json
+
+{
+  "token": "5e601a31497d6526d8b9a480c048fecd3b4aa56a621577e59d17643e2570f42b",
+   "bio": "Backend engineer focused on scalable APIs, cloud infrastructure, and clean architecture.",
+      "currentPost": "Backend Engineer at Nexora Tech",
+      "pastWork": [
+        {
+          "company": "CloudByte Systems",
+          "position": "Node.js Developer",
+          "years": "2023 - 2025"  
+        },
+        {
+          "company": "DevStack Labs",
+          "position": "Software Engineering Intern",
+          "years": "2022 - 2023"
+        }
+      ],
+      "education": [
+        {
+          "school": "Indian Institute of Technology Delhi",
+          "degree": "B.Tech in Information Technology",
+          "fieldOfStudy": "2021 - 2025"
+        }
+      ]
+}
+
+###
+GET http://localhost:3000/user/get_all_users
