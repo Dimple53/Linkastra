@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const postSchema = new mongoose.Schema({
+const PostSchema = mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
@@ -14,12 +14,12 @@ const postSchema = new mongoose.Schema({
     default: 0
   },
   createdAt: {
-    type: [Date],
-    default: [Date.now]
+    type: Date,
+    default: Date.now
   },
   updatedAt: {
-    type: [Date],
-    default: [Date.now]
+    type: Date,
+    default: Date.now
   },
   media: {
     type: String,
@@ -30,11 +30,11 @@ const postSchema = new mongoose.Schema({
     default: true
   },
   fileType: {
-     type: String,
+    type: String,
     default: ""
   }
 });
 
-const Post = mongoose.model('Post', postSchema);
+const Post = mongoose.model('Post', PostSchema);
 
 export default Post;
