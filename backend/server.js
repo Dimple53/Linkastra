@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(postRoutes);
 app.use(userRoutes);
-
+app.use(express.static('uploads'));
 
 
 // console.log("ENV:", process.env.MONGO_URI);

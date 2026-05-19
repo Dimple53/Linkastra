@@ -23,7 +23,7 @@ GET http://localhost:3000/get_user_and_profile
 Content-Type: application/json
 
 {
-  "token": "5e601a31497d6526d8b9a480c048fecd3b4aa56a621577e59d17643e2570f42b"
+  "token": "f8d35441f5d1f6a24ab1cb763c9e0ecd1ae34413bef678a37909f0e0c094cb2c"
 }
 
 ###
@@ -31,7 +31,7 @@ POST http://localhost:3000/update_profile_data
 Content-Type: application/json
 
 {
-  "token": "5e601a31497d6526d8b9a480c048fecd3b4aa56a621577e59d17643e2570f42b",
+  "token": "f8d35441f5d1f6a24ab1cb763c9e0ecd1ae34413bef678a37909f0e0c094cb2c",
    "bio": "Backend engineer focused on scalable APIs, cloud infrastructure, and clean architecture.",
       "currentPost": "Backend Engineer at Nexora Tech",
       "pastWork": [
