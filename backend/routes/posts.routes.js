@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { activeCheck, createPost, deletePost, getAllPosts } from "../controllers/posts.controller.js"
+import { activeCheck, commentPost, createPost, deleteCommentOfUser, deletePost, getAllPosts, getCommentsByPost, incrementPostLikes } from "../controllers/posts.controller.js"
 import multer from "multer";
 
 const router = Router();
@@ -19,5 +19,9 @@ router.route('/').get(activeCheck);
 router.route('/post').post(upload.single('media'), createPost);
 router.route('/posts').get(getAllPosts);
 router.route('/delete_post').post(deletePost);
+router.route('/comment').post(commentPost);
+router.route('/get_comments').post(getCommentsByPost);
+router.route('/delete_comment').delete(deleteCommentOfUser);
+router.route('/like_post').post(incrementPostLikes);
 
 export default router;
