@@ -14,8 +14,8 @@ export default function Home() {
     <>
       
       <div className={styles.container}>
-        <div className="mainContainer">
-          <div className="mainContainer__left">
+        <div className={styles.mainContainer}>
+          <div className={styles.mainContainer__left}>
             <p>Connect with Friends without Exaggeration</p>
             <p>A true social media platform, with stories no blufs!</p>
             <p>Linkastra is a social media platform designed to foster genuine connections and meaningful interactions. We believe in creating a space where users can connect with friends, share their thoughts, and engage in authentic conversations without the noise of exaggeration. Join us today and experience a social media platform that values real connections over superficial interactions.</p>
@@ -26,7 +26,7 @@ export default function Home() {
               <button>Join Now</button>
             </div>
           </div>
-          <div className="mainContainer__right">
+          <div className={styles.mainContainer__right}>
             <Image src="/images/homemain_connection.png" alt="" width={100} height={100} />
           </div>
         </div>
