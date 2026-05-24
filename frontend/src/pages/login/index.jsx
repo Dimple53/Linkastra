@@ -1,11 +1,12 @@
+import UserLayout from '@/layout/userLayout'
 import React from 'react'
 
-function LoginComponent() {
+export default function LoginComponent() {
   return (
-    <div>
-      LoginComponent
-    </div>
+    <UserLayout>
+      <h2>Login Page</h2>
+    </UserLayout>
   )
 }
 
-export default LoginComponent
+
