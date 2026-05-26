@@ -23,3 +23,18 @@ export const loginUser = createAsyncThunk(
   }
 );
 
+export const registerUser = createAsyncThunk(
+  "user/register",
+  async (user, thunkAPI) => { 
+    try {
+      const request = await clientServer.post('/register', {
+        email: user.email,
+        password: user.password,
+        name: user.name,
+        username: user.username
+      });
+      return thunkAPI.fulfillWithValue(response.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+});

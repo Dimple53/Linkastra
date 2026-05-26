@@ -1,8 +1,10 @@
 import UserLayout from '@/layout/userLayout'
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from "./styles.module.css"
+import { loginUser, registerUser } from '@/config/redux/action/authAction';
+import { register } from 'next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup';
 
 export default function LoginComponent() {
   
@@ -10,7 +12,15 @@ export default function LoginComponent() {
   const authState = useSelector((state) => state.auth);
   
   const router = useRouter();
+
+  const dispatch = useDispatch();
+
   const [userLoginMethod, setUserLoginMethod] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     if (authState.loggedIn) {
@@ -19,7 +29,10 @@ export default function LoginComponent() {
   });
 
 
-
+  const handleRegister = () => {
+    console.log("Registering user...");
+    dispatch(registerUser({ email, password, name, username }));
+  }
   return (
     <UserLayout>
       
@@ -29,13 +42,43 @@ export default function LoginComponent() {
             <p className={styles.cardLeft__heading}>{userLoginMethod ? "Sign In" : "Sign Up"}</p>
             <div className={styles.inputContainers}>
               <div className={styles.inputRow}>
-                <input placeholder='Username' className={styles.inputField} type="text" />
-                <input placeholder='Name' className={styles.inputField} type="text" />
+                <input 
+                  placeholder='Username' 
+                  className={styles.inputField} 
+                  type="text" 
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <input 
+                  placeholder='Name' 
+                  className={styles.inputField} 
+                  type="text" 
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
               </div>
-              <input placeholder='Email' className={styles.inputField} type="email" />
-              <input placeholder='Password' className={styles.inputField} type="password" />
+              <input 
+                placeholder='Email' 
+                className={styles.inputField} 
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input 
+                placeholder='Password' 
+                className={styles.inputField} 
+                type="password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
 
-              <div className={styles.buttonWithOutline} >
+              <div onClick={() => {
+                if (userLoginMethod) {
+                  // Handle login logic here
+                } else {
+                  handleRegister();
+                }
+              }} className={styles.buttonWithOutline} >
                 <p>{userLoginMethod ? "Sign In" : "Sign Up"}</p>
               </div>
                 <p>{userLoginMethod ? "Don't have an account? Sign Up" : "Already have an account? Sign In"}</p>
@@ -54,5 +97,3 @@ export default function LoginComponent() {
     </UserLayout>
   )
 }
-
-
