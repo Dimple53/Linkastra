@@ -40,7 +40,10 @@ export default function LoginComponent() {
         <div className={styles.cardContainer}>
           <div className={styles.cardContainer__left}>
             <p className={styles.cardLeft__heading}>{userLoginMethod ? "Sign In" : "Sign Up"}</p>
+            {authState.message.message}
+           
             <div className={styles.inputContainers}>
+    
               <div className={styles.inputRow}>
                 <input 
                   placeholder='Username' 
