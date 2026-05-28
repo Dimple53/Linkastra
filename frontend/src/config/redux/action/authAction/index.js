@@ -27,11 +27,12 @@ export const registerUser = createAsyncThunk(
   "user/register",
   async (user, thunkAPI) => { 
     try {
-      const request = await clientServer.post('/register', {
+      const response = await clientServer.post('/register', {
+        username: user.username,
+        name: user.name,
         email: user.email,
         password: user.password,
-        name: user.name,
-        username: user.username
+        
       });
       return thunkAPI.fulfillWithValue(response.data);
     } catch (error) {

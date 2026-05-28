@@ -30,8 +30,8 @@ export default function LoginComponent() {
 
 
   const handleRegister = () => {
-    console.log("Registering user...");
-    dispatch(registerUser({ email, password, name, username }));
+    console.log("registering...");
+    dispatch(registerUser({ username, name, email, password }));
   }
   return (
     <UserLayout>
@@ -49,14 +49,14 @@ export default function LoginComponent() {
                   placeholder='Username' 
                   className={styles.inputField} 
                   type="text" 
-                  value={username}
+                  
                   onChange={(e) => setUsername(e.target.value)}
                 />
                 <input 
                   placeholder='Name' 
                   className={styles.inputField} 
                   type="text" 
-                  value={name}
+                 
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
@@ -64,14 +64,14 @@ export default function LoginComponent() {
                 placeholder='Email' 
                 className={styles.inputField} 
                 type="email" 
-                value={email}
+                
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input 
                 placeholder='Password' 
                 className={styles.inputField} 
                 type="password" 
-                value={password}
+            
                 onChange={(e) => setPassword(e.target.value)}
               />
 
