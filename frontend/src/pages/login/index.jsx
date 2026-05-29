@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from "./styles.module.css"
 import { loginUser, registerUser } from '@/config/redux/action/authAction';
-import { register } from 'next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup';
 
 export default function LoginComponent() {
   
@@ -46,40 +45,37 @@ export default function LoginComponent() {
     
               <div className={styles.inputRow}>
                 <input 
-                  placeholder='Username' 
+                  onChange={(e) => setUsername(e.target.value)}
                   className={styles.inputField} 
                   type="text" 
-                  
-                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder='Username' 
                 />
                 <input 
-                  placeholder='Name' 
+                  onChange={(e) => setName(e.target.value)}
                   className={styles.inputField} 
                   type="text" 
-                 
-                  onChange={(e) => setName(e.target.value)}
+                  placeholder='Name' 
                 />
               </div>
+                 
               <input 
-                placeholder='Email' 
+                onChange={(e) => setEmail(e.target.value)}
                 className={styles.inputField} 
                 type="email" 
-                
-                onChange={(e) => setEmail(e.target.value)}
+                placeholder='Email'
               />
               <input 
-                placeholder='Password' 
+                onChange={(e) => setPassword(e.target.value)}
                 className={styles.inputField} 
                 type="password" 
-            
-                onChange={(e) => setPassword(e.target.value)}
+                placeholder='Password' 
               />
 
               <div onClick={() => {
                 if (userLoginMethod) {
                   // Handle login logic here
                 } else {
-                  handleRegister();
+                    handleRegister();
                 }
               }} className={styles.buttonWithOutline} >
                 <p>{userLoginMethod ? "Sign In" : "Sign Up"}</p>

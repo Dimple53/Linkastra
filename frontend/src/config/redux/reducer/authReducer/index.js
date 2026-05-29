@@ -10,7 +10,7 @@ const initialState = {
   message: "",
   profileFetched: false,
   connections: [],
-  connectionRequests: []
+  connectionRequest: []
 };
 
 const authSlice = createSlice({
