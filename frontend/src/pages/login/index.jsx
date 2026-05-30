@@ -25,7 +25,7 @@ export default function LoginComponent() {
     if (authState.loggedIn) {
       router.push("/dashboard");
     }
-  });
+  }, [authState.loggedIn, router]);
 
 
   const handleRegister = () => {
@@ -39,7 +39,9 @@ export default function LoginComponent() {
         <div className={styles.cardContainer}>
           <div className={styles.cardContainer__left}>
             <p className={styles.cardLeft__heading}>{userLoginMethod ? "Sign In" : "Sign Up"}</p>
-            {authState.message.message}
+            <p style={{ color: authState.isError ? 'red' : 'green' }}>
+              {authState.message.message}
+            </p>
            
             <div className={styles.inputContainers}>
     
