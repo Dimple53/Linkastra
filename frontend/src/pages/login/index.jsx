@@ -82,7 +82,8 @@ export default function LoginComponent() {
               }} className={styles.buttonWithOutline} >
                 <p>{userLoginMethod ? "Sign In" : "Sign Up"}</p>
               </div>
-                <p>{userLoginMethod ? "Don't have an account? Sign Up" : "Already have an account? Sign In"}</p>
+              
+                
             
             </div>
           
@@ -90,6 +91,11 @@ export default function LoginComponent() {
           
           </div>
           <div className={styles.cardContainer__right}>
+             <div onClick={() => {
+                setUserLoginMethod(!userLoginMethod);
+              }} className={styles.buttonWithOutline} >
+                <p>{userLoginMethod ? "Don't have an account? Sign Up" : "Already have an account? Sign In"}</p>
+              </div>
           </div>
         
         
