@@ -30,6 +30,10 @@
   align-items: center;
   justify-content: center;
   background-color: #00488b ;
+  color: white;
+  flex-direction: column;
+  padding-inline: 1.2rem;
+  gap: 1.2rem;
 }
 
 .cardLeft__heading{

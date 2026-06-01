@@ -45,20 +45,20 @@ export default function LoginComponent() {
            
             <div className={styles.inputContainers}>
     
-              <div className={styles.inputRow}>
-                <input 
-                  onChange={(e) => setUsername(e.target.value)}
-                  className={styles.inputField} 
-                  type="text" 
-                  placeholder='Username' 
-                />
-                <input 
-                  onChange={(e) => setName(e.target.value)}
-                  className={styles.inputField} 
-                  type="text" 
-                  placeholder='Name' 
-                />
-              </div>
+              {!userLoginMethod && <div className={styles.inputRow}>
+                  <input
+                    onChange={(e) => setUsername(e.target.value)}
+                    className={styles.inputField}
+                    type="text"
+                    placeholder='Username'
+                  />
+                  <input
+                    onChange={(e) => setName(e.target.value)}
+                    className={styles.inputField}
+                    type="text"
+                    placeholder='Name'
+                  />
+                </div>}
                  
               <input 
                 onChange={(e) => setEmail(e.target.value)}
@@ -91,13 +91,15 @@ export default function LoginComponent() {
           
           </div>
           <div className={styles.cardContainer__right}>
-             <div onClick={() => {
-                setUserLoginMethod(!userLoginMethod);
-              }} className={styles.buttonWithOutline} >
-                <p>{userLoginMethod ? "Don't have an account? Sign Up" : "Already have an account? Sign In"}</p>
+            <div>
+              <p>{userLoginMethod ? "Don't have an account?" : "Already have an account?"}</p>
+              <div onClick={() => {
+                  setUserLoginMethod(!userLoginMethod);
+              }} style={{ color: "black", textAlign: "center" }} className={styles.buttonWithOutline} >
+                  <p>{userLoginMethod ? "Sign Up" : " Sign In"}</p>
               </div>
+            </div>
           </div>
-        
         
         </div>
       </div>
