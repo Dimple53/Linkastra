@@ -32,6 +32,12 @@ export default function LoginComponent() {
     console.log("registering...");
     dispatch(registerUser({ username, name, email, password }));
   }
+
+  const handleLogin = () => {
+    console.log("logging in...");
+    dispatch(loginUser({ email, password }));
+  }
+
   return (
     <UserLayout>
       
@@ -75,7 +81,7 @@ export default function LoginComponent() {
 
               <div onClick={() => {
                 if (userLoginMethod) {
-                  // Handle login logic here
+                  handleLogin();
                 } else {
                     handleRegister();
                 }
@@ -91,14 +97,14 @@ export default function LoginComponent() {
           
           </div>
           <div className={styles.cardContainer__right}>
-            <div>
+            
               <p>{userLoginMethod ? "Don't have an account?" : "Already have an account?"}</p>
               <div onClick={() => {
                   setUserLoginMethod(!userLoginMethod);
               }} style={{ color: "black", textAlign: "center" }} className={styles.buttonWithOutline} >
                   <p>{userLoginMethod ? "Sign Up" : " Sign In"}</p>
               </div>
-            </div>
+            
           </div>
         
         </div>
