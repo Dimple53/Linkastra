@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from "./styles.module.css"
 import { loginUser, registerUser } from '@/config/redux/action/authAction';
+import { emptyMessage } from '@/config/redux/reducer/authReducer';
 
 export default function LoginComponent() {
   
@@ -26,6 +27,16 @@ export default function LoginComponent() {
       router.push("/dashboard");
     }
   }, [authState.loggedIn, router]);
+
+  useEffect(() => {
+      if (localStorage.getItem("token")) {
+        router.push("/dashboard"); 
+      }
+    }, []);
+ 
+  useEffect(() => {
+    dispatch(emptyMessage());
+  }, [userLoginMethod]);
 
 
   const handleRegister = () => {
