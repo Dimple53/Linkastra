@@ -36,7 +36,9 @@ export default function Dashboard() {
     <UserLayout>
       
       <DashboardLayout>
-        <h1>Dashboard</h1>
+        <div>
+          <h1>Dashboard</h1>
+        </div>
 
       </DashboardLayout>
 
