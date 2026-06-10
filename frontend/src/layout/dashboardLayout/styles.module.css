@@ -14,16 +14,20 @@
 .homeContainer__leftBar{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 
-  gap: 1.2em;
+  gap: 1.2rem;
 }
 
 .sideBarOption{
   display: flex;
   align-items: center;
   font-size: 1.4rem;
-  gap: 1.2em;
+  gap: 1.3rem;
+  width: 80%;
+  max-width: 80%;
+  margin: 0 auto;
+  cursor: pointer;
   
 }
 
