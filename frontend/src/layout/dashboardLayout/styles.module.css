@@ -28,12 +28,13 @@
   max-width: 80%;
   margin: 0 auto;
   cursor: pointer;
+  transition: all 0.2s ;
   
 }
 
 .sideBarOption :hover{
-  background-color: #f0f0f0;
-  border-radius: 8px;
+ 
+  transform: scale(1.03);
 }
 
 .sideBarOption >  svg{
