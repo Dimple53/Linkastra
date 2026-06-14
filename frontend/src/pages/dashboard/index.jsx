@@ -33,17 +33,12 @@ export default function Dashboard() {
     }
   }, [isTokenThere]);
   return (
-    <UserLayout>
-      
+    <UserLayout> 
       <DashboardLayout>
         <div>
           <h1>Dashboard</h1>
         </div>
-
       </DashboardLayout>
-
-
-
     </UserLayout>
   )
 }
