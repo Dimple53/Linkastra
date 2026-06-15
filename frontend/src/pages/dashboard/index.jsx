@@ -8,30 +8,31 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function Dashboard() {
 
-  const route = useRouter();
+  const router = useRouter();
 
   const dispatch = useDispatch();
 
   const authState = useSelector((state) => state.auth);
 
-  const [isTokenThere, setIsTokenThere] = useState(false);
+  // const [isTokenThere, setIsTokenThere] = useState(false);
 
  
 
-  useEffect(() => { 
-    if (localStorage.getItem("token") == null) {
-      route.push("/login");
-    } 
-    setIsTokenThere(true);
+  // useEffect(() => { 
+  //   if (localStorage.getItem("token") == null) {
+  //     route.push("/login");
+  //   } 
+  //   setIsTokenThere(true);
     
-  });
+  // });
 
   useEffect(() => {
-    if (isTokenThere) {
+    if (authState.isTokenThere) {
+      console.log("Auth token");
       dispatch(getAllPosts());
       dispatch(getAboutUser({ token: localStorage.getItem("token") }));
     }
-  }, [isTokenThere]);
+  }, [authState.isTokenThere]);
   return (
     <UserLayout> 
       <DashboardLayout>

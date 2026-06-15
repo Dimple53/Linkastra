@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './styles.module.css'
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { setTokenIsThere } from '@/config/redux/reducer/authReducer';
 export default function DashboardLayout({children}) {
  
- const router=useRouter();
+  const router = useRouter();
+  
+  const dispatch = useDispatch();
+  useEffect(() => { 
+    if (localStorage.getItem("token") == null) {
+      router.push("/login");
+    } 
+    dispatch(setTokenIsThere());
+      
+    });
+
   return (
     <div>
       <div className={styles.Container}>
@@ -45,6 +57,7 @@ export default function DashboardLayout({children}) {
 
 
           <div className={styles.homeContainer__extraContainer}>
+            <h3>Top Profiles</h3>
             
           </div>
         </div>
