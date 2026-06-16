@@ -14,7 +14,7 @@ export default function DashboardLayout({children}) {
     } 
     dispatch(setTokenIsThere());
       
-    });
+  });
 
   return (
     <div>

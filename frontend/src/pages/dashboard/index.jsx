@@ -1,4 +1,4 @@
-import { getAboutUser } from '@/config/redux/action/authAction';
+import { getAboutUser, getAllUsers } from '@/config/redux/action/authAction';
 import { getAllPosts } from '@/config/redux/action/postAction';
 import DashboardLayout from '@/layout/dashboardLayout';
 import UserLayout from '@/layout/userLayout';
@@ -31,6 +31,10 @@ export default function Dashboard() {
       console.log("Auth token");
       dispatch(getAllPosts());
       dispatch(getAboutUser({ token: localStorage.getItem("token") }));
+    }
+
+    if (!authState.all_profile_fetched) {
+        dispatch(getAllUsers());
     }
   }, [authState.isTokenThere]);
   return (

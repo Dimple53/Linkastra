@@ -53,4 +53,18 @@ export const getAboutUser = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
-});
+  });
+
+export const getAllUsers = createAsyncThunk(
+  "user/getAllUsers",
+  async (_, thunkAPI) => { 
+    try {
+      const response = await clientServer.get('/user/get_all_users')
+        
+      return thunkAPI.fulfillWithValue(response.data);
+    }
+    catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
