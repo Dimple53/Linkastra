@@ -11,7 +11,7 @@ export default function Discover() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!authState.all_profile_fetched) {
+    if (!authState.all_profiles_fetched) {
       dispatch(getAllUsers());
     }
   }, []);
