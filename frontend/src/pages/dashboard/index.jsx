@@ -5,6 +5,8 @@ import UserLayout from '@/layout/userLayout';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import styles from './styles.module.css'
+import { BASE_URL } from '@/config';
 
 export default function Dashboard() {
 
@@ -40,8 +42,10 @@ export default function Dashboard() {
   return (
     <UserLayout> 
       <DashboardLayout>
-        <div>
-          <h1>Dashboard</h1>
+        <div className="scrollComponent">
+          <div className={styles.createPostContainer}>
+            <img width="100" height="100" src={`${BASE_URL}/${authState.user.userId.profilePicture}`} alt="profile" className={styles.profilePic} />
+          </div>
         </div>
       </DashboardLayout>
     </UserLayout>
