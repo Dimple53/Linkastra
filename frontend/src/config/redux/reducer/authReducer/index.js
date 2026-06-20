@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getAboutUser, getAllUsers, loginUser, registerUser } from "../../action/authAction";
 
 const initialState = {
-  user: [],
+  user: undefined,
   isError: false,
   isSuccess: false,
   isLoading: false,

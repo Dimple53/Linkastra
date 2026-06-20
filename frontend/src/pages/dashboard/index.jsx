@@ -39,15 +39,38 @@ export default function Dashboard() {
         dispatch(getAllUsers());
     }
   }, [authState.isTokenThere]);
-  return (
-    <UserLayout> 
-      <DashboardLayout>
-        <div className="scrollComponent">
-          <div className={styles.createPostContainer}>
-            <img width="100" height="100" src={`${BASE_URL}/${authState.user.userId.profilePicture}`} alt="profile" className={styles.profilePic} />
+
+
+  if (authState.user) {
+    return (
+      <UserLayout>
+        <DashboardLayout>
+          <div className="scrollComponent">
+            <div className={styles.createPostContainer}>
+              <img width="100" className={styles.profilePic} src={`${BASE_URL}/${authState.user.userId.profilePicture}`} alt="profile" />
+              <textarea name="" id="">  </textarea>
+              <label htmlFor="fileUpload">
+                <div className={styles.Fab}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                </div>
+               
+              </label>
+              <input type="file" hidden name="" id="fileUpload" className={styles.fileInput} />
+            </div>
           </div>
-        </div>
-      </DashboardLayout>
-    </UserLayout>
-  )
-}
+        </DashboardLayout>
+      </UserLayout>
+    )
+  } else {
+    return (
+      <UserLayout>
+        <DashboardLayout>
+          <h2>Loading...</h2>
+        </DashboardLayout>
+      </UserLayout>
+    )}
+  }
+
+
