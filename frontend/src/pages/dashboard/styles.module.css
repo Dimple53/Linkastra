@@ -1,1 +1,20 @@
-.createPostContainer{}
+.createPostContainer{
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  height: 10svh;
+  width: 70%;
+  padding-inline: 0.8rem;
+}
+.createPostContainer > textarea{
+  width: 100%;
+  /* height: 100%;
+  resize: none;
+  padding: 10px;
+  font-size: 16px; */
+}
+
+.Fab > svg{
+  width: 100px;
+  
+}
