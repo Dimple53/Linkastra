@@ -1,21 +1,7 @@
-<div align="center">
-<svg width="800" height="160" viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0A66C2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0E4F8A;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect width="800" height="160" rx="16" fill="url(#bg)"/>
-  <text x="400" y="72" font-family="Segoe UI, Arial, sans-serif" font-size="52" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="2">🔗 Linkastra</text>
-  <text x="400" y="108" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#A8D4F5" text-anchor="middle">A Full-Stack Professional Networking Platform</text>
-  <text x="400" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#7BB8E8" text-anchor="middle">LinkedIn Clone · Next.js · Node.js · Redux Toolkit</text>
-</svg>
 
- 
-</div>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0A66C2&height=180&section=header&text=Linkastra&fontSize=60&fontColor=ffffff&fontAlignY=38&desc=A%20Full-Stack%20Professional%20Networking%20Platform&descAlignY=58&descSize=18&descColor=A8D4F5" width="100%"/>
 
-# Linkastra
+
 <div align="center">
 
 # 🔗 Linkastra
