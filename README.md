@@ -13,11 +13,11 @@
 ## 📸 Preview
  
 <div align="center">
-  <img width="940" alt="Linkastra Feed — Post Card View" src="https://github.com/user-attachments/assets/6260755f-7908-4e4d-8eed-887d76d99532" />
+  <img width="934" height="395" alt="home_page" src="https://github.com/user-attachments/assets/9cc09928-37e7-4f0d-99c4-aec84ce61269" />
   <br/>
   <sub>🖥️ Linkastra — Main Page</sub>
 </div>
----
+
 
 ## 📋 Project Overview
 
