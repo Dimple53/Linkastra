@@ -1,21 +1,22 @@
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0A66C2&height=180&section=header&text=Linkastra&fontSize=60&fontColor=ffffff&fontAlignY=38&desc=A%20Full-Stack%20Professional%20Networking%20Platform&descAlignY=58&descSize=18&descColor=A8D4F5" width="100%"/>
-
-
 <div align="center">
 
-# 🔗 Linkastra
-
-### A Full-Stack Professional Networking Platform
-
-*LinkedIn Clone · Built with Next.js, Node.js & Redux Toolkit*
-
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0A66C2&height=180&section=header&text=Linkastra&fontSize=60&fontColor=ffffff&fontAlignY=38&desc=A%20Full-Stack%20Professional%20Networking%20Platform&descAlignY=58&descSize=18&descColor=A8D4F5" width="100%"/>
+ 
 ![Status](https://img.shields.io/badge/Status-In%20Development-2ECC71?style=for-the-badge)
 ![Stack](https://img.shields.io/badge/Stack-Next.js%20%2B%20Node.js-0E76A8?style=for-the-badge)
 ![Type](https://img.shields.io/badge/Type-Full--Stack-8E44AD?style=for-the-badge)
-
+ 
 </div>
 
+---
+
+## 📸 Preview
+ 
+<div align="center">
+  <img width="940" alt="Linkastra Feed — Post Card View" src="https://github.com/user-attachments/assets/6260755f-7908-4e4d-8eed-887d76d99532" />
+  <br/>
+  <sub>🖥️ Linkastra — Main Page</sub>
+</div>
 ---
 
 ## 📋 Project Overview
@@ -180,5 +181,5 @@ Linkastra is planned for deployment on **Render**, hosting both services separat
 
 <div align="center">
 
-Built with ❤️ by **Dimple** &nbsp;·&nbsp; Linkastra © 2025
+Built with ❤️ by **Dimple** &nbsp;·&nbsp; Linkastra © 2026
 </div>
