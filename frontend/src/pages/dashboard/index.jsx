@@ -48,7 +48,7 @@ export default function Dashboard() {
           <div className={styles.scrollComponent}>
             <div className={styles.createPostContainer}>
               <img className={styles.profilePic} src={`${BASE_URL}/${authState.user.userId.profilePicture}`} alt="profile" />
-              <textarea name="" id=""></textarea>
+              <textarea placeholder="What's in your mind?" className={styles.postTextarea} id=""></textarea>
               <label htmlFor="fileUpload">
                 <div className={styles.Fab}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
