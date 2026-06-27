@@ -58,6 +58,11 @@ export default function Dashboard() {
                
               </label>
               <input type="file" hidden name="" id="fileUpload" className={styles.fileInput} />
+              <div className={styles.uploadButton}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L9 6m6 6l4.5-4.5M10.5 4.5h10S21 9 21 13.5v7.5a2.25 2.25 0 01-2.25 2.25H9A2.25 2.25 0 016.75 18v-7.5a2.25 2.25 0 014.88-1." />
+                </svg>
+              </div>
             </div>
           </div>
         </DashboardLayout>
