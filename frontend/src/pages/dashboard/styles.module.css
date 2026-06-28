@@ -9,6 +9,7 @@
   width: 70%;
   padding-inline: 0.8rem;
   gap: 1.3rem;
+  position: relative;
   align-items: center;
   border-radius: 20px;
   background-color: rgb(255, 246, 246);
