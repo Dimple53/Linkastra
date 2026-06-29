@@ -18,6 +18,18 @@
   width: 100%;
 }
 
+.uploadButton{
+  position: absolute;
+  right: 0;
+  bottom: -45%;
+  background: rgb(2, 93, 158);
+  color: white;
+  border-radius: 10px;
+  padding-inline: 1.2rem;
+  padding-block: 0.5rem;
+  cursor: pointer;
+}
+
 .profilePic{
   width: fit-content;
   height: 60%;
