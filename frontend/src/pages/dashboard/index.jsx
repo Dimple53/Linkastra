@@ -40,6 +40,7 @@ export default function Dashboard() {
     }
   }, [authState.isTokenThere]);
 
+  const[postContent, setPostContent] = useState("");
 
   if (authState.user) {
     return (
@@ -48,7 +49,7 @@ export default function Dashboard() {
           <div className={styles.scrollComponent}>
             <div className={styles.createPostContainer}>
               <img className={styles.profilePic} src={`${BASE_URL}/${authState.user.userId.profilePicture}`} alt="profile" />
-              <textarea placeholder={"What's in your mind?"} className={styles.postTextArea} id=""></textarea>
+              <textarea onChange={(e) => setPostContent(e.target.value)} value={postContent} placeholder={"What's in your mind?"} className={styles.postTextArea} id=""></textarea>
               <label htmlFor="fileUpload">
                 <div className={styles.Fab}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -58,9 +59,10 @@ export default function Dashboard() {
                
               </label>
               <input type="file" hidden id="fileUpload" />
-              <div className={styles.uploadButton}>
-                Upload File
-              </div>
+              {postContent.length > 0 &&
+                <div className={styles.uploadButton}>Post</div>
+
+              }
             </div>
           </div>
         </DashboardLayout>
