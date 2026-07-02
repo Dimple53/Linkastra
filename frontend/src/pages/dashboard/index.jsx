@@ -16,17 +16,7 @@ export default function Dashboard() {
 
   const authState = useSelector((state) => state.auth);
 
-  // const [isTokenThere, setIsTokenThere] = useState(false);
-
- 
-
-  // useEffect(() => { 
-  //   if (localStorage.getItem("token") == null) {
-  //     route.push("/login");
-  //   } 
-  //   setIsTokenThere(true);
-    
-  // });
+  const postState = useSelector((state) => state.post)
 
   useEffect(() => {
     if (authState.isTokenThere) {
@@ -68,6 +58,27 @@ export default function Dashboard() {
                 <div onClick={handleUpload} className={styles.uploadButton}>Post</div>
 
               }
+            </div>
+            <div className={styles.postContainer}>
+              {postState.posts.map((post) => {
+                return (
+                  <div key={post._id} className={styles.postContainer}>
+                    <div className={styles.postHeader}>
+                      <img className={styles.profilePic} src={`${BASE_URL}/${post.userId.profilePicture}`} alt="profile" />
+                      
+                        <h4>{post.userId.name}</h4>
+                        
+                        
+                      
+                    </div>
+                    <div className={styles.postBody}>
+                      <p>{post.body}</p>
+                      {(post.fileType === "jpeg" || post.fileType === "png") && <img className={styles.postImage} src={`${BASE_URL}/${post.file}`} alt="post" />}
+                    </div>
+                  </div>
+                )
+              })}
+            
             </div>
           </div>
         </DashboardLayout>
