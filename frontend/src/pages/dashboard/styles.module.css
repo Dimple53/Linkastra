@@ -3,10 +3,16 @@
   justify-content: center;
 }
 
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+} 
+
 .createPostContainer{
   display: flex;
   height: 10svh;
-  width: 70%;
+  width: 100%;
   padding-inline: 0.8rem;
   gap: 1.3rem;
   position: relative;
@@ -60,5 +66,12 @@
   width: fit-content;
   height: 30px;
   color: white;
+  
+}
+
+.singleCard{
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: 1px solid rgb(179, 179, 179);
   
 }
