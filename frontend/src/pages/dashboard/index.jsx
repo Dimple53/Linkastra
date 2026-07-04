@@ -63,13 +63,17 @@ export default function Dashboard() {
                 {postState.posts.map((post) => {
                   return (
                     <div key={post._id} className={styles.singleCard}>
-                      <div className={styles.singleCard_profileContainer}>
+                      <div className={styles.singleCard__profileContainer}>
                         <img className={styles.profilePic} src={`${BASE_URL}/${post.userId.profilePicture}`} alt="profile" />
-                        <div className={styles.singleCard_profileName}>
-                          <h3>{post.userId.name}</h3>
+                        <div>
+                          <p style={{ fontWeight: "bold" }}>{post.userId.name}</p>
+                          <p style={{ color: "gray" }}>@{post.userId.username}</p>
+                          <p style={{ paddingTop: "1.3rem" }}>{post.body}</p>
+                        </div>
+                          
                         </div>
                       </div>
-                    </div>
+                    
                   )
                 })}
               
