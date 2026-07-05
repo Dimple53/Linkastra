@@ -90,3 +90,17 @@
   border-radius: 50%;
 
 }
+
+.singleCard__image{
+  width: 100%;
+  height: fit-content;
+  padding-top: 0.6rem;
+  overflow: hidden;
+}
+
+.singleCard__image > img{
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}

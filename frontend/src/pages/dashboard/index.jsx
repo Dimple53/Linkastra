@@ -55,9 +55,9 @@ export default function Dashboard() {
               
                 </label>
                 <input onChange={(e) => setFileContent(e.target.files[0])} type="file" hidden id="fileUpload" />
-                {postContent.length > 0 &&
+                {(postContent.length > 0) && (
                   <div onClick={handleUpload} className={styles.uploadButton}>Post</div>
-                }
+                )}
               </div>
               <div className={styles.postContainer}>
                 {postState.posts.map((post) => {
@@ -69,6 +69,8 @@ export default function Dashboard() {
                           <p style={{ fontWeight: "bold" }}>{post.userId.name}</p>
                           <p style={{ color: "gray" }}>@{post.userId.username}</p>
                           <p style={{ paddingTop: "1.3rem" }}>{post.body}</p>
+
+                          <div><img className={styles.singleCard__image} src={`${BASE_URL}/${post.media}`} alt="post" /></div>
                         </div>
                           
                         </div>
