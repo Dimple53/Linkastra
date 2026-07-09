@@ -35,6 +35,9 @@ export default function Dashboard() {
 
   const handleUpload = async() => {
     await dispatch(createPost({file: fileContent, body: postContent}))
+    setPostContent("");
+    setFileContent(null);
+    dispatch(getAllPosts());
   }
 
   if (authState.user) {
