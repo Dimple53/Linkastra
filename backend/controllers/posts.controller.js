@@ -52,7 +52,7 @@ export const deletePost = async (req, res) => {
     if (post.userId.toString() !== user._id.toString()) {
       return res.status(401).json({ message: "Unauthorized" });
     }
-    await Post.deletePost({ _id: post_id });
+    await Post.deleteOne({ _id: post_id });
     return res.json({ message: "Post deleted successfully" });
   } catch (error) {
     return res.status(500).json({ message: error.message });

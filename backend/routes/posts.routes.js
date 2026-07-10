@@ -18,7 +18,7 @@ const upload = multer({storage: storage});
 router.route('/').get(activeCheck);
 router.route('/post').post(upload.single('media'), createPost);
 router.route('/posts').get(getAllPosts);
-router.route('/delete_post').post(deletePost);
+router.route('/delete_post').delete(deletePost);
 router.route('/comment').post(commentPost);
 router.route('/get_comments').post(getCommentsByPost);
 router.route('/delete_comment').delete(deleteCommentOfUser);
