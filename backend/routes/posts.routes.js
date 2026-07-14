@@ -20,7 +20,7 @@ router.route('/post').post(upload.single('media'), createPost);
 router.route('/posts').get(getAllPosts);
 router.route('/delete_post').delete(deletePost);
 router.route('/comment').post(commentPost);
-router.route('/get_comments').post(getCommentsByPost);
+router.route('/get_comments').get(getCommentsByPost);
 router.route('/delete_comment').delete(deleteCommentOfUser);
 router.route('/like_post').post(incrementPostLikes);
 
