@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles.module.css'
 import { BASE_URL } from '@/config';
+import { resetPostId } from '@/config/redux/reducer/postReducer';
 
 export default function Dashboard() {
 
@@ -131,7 +132,20 @@ export default function Dashboard() {
           </div>
           {
             postState.postId !== "" && 
-            <p>Showing Comments</p>
+            <div
+            onClick={() => {
+              dispatch(resetPostId())
+            }}
+            className={styles.commentsContainer}>
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+                className={styles.allCommentsContainer}>
+
+                {postState.comments.length == 0 && <h2>No comments yet</h2>}
+              </div>
+            </div>
           }
         </DashboardLayout>
       </UserLayout>

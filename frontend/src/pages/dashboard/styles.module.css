@@ -124,3 +124,29 @@
   height: 100%;
  
 }
+
+.commentsContainer{
+  width: 100vw;
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow-y: hidden;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+
+}
+
+.allCommentsContainer{
+  width: 40vw;
+  height: 80vh;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  padding: 1.4rem;
+  
+}
