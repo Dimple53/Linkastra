@@ -33,6 +33,7 @@ export default function Dashboard() {
 
   const[postContent, setPostContent] = useState("");
   const[fileContent, setFileContent] = useState();
+  const[commentText, setCommentText] = useState("");
 
   const handleUpload = async() => {
     await dispatch(createPost({file: fileContent, body: postContent}))
@@ -143,7 +144,18 @@ export default function Dashboard() {
                 }}
                 className={styles.allCommentsContainer}>
 
-                {postState.comments.length == 0 && <h2>No comments yet</h2>}
+                {postState.comments.length == 0 && <h2>No comments</h2>}
+              
+                <div className={styles.postCommentContainer}>
+                  <input type="" value={commentText} onChange={(e) => setCommentText(e.target.value)} placeholder='Write a comment...' />
+                  <div onClick={async () => {
+                    // await dispatch(postComment({post_id: postState.postId, body: commentText}))
+                    // await dispatch(getAllComments({post_id: postState.postId}))
+                  }} className={styles.postCommentContainer__commentBtn}>
+                    <p>Comment</p>
+                  </div>
+                </div>
+              
               </div>
             </div>
           }
