@@ -1,5 +1,5 @@
 import { getAboutUser, getAllUsers } from '@/config/redux/action/authAction';
-import { createPost, getAllPosts, deletePost, incrementPostLikes, getAllComments} from '@/config/redux/action/postAction';
+import { createPost, getAllPosts, deletePost, incrementPostLikes, getAllComments, postComment} from '@/config/redux/action/postAction';
 import DashboardLayout from '@/layout/dashboardLayout';
 import UserLayout from '@/layout/userLayout';
 import { useRouter } from 'next/router';
@@ -145,12 +145,19 @@ export default function Dashboard() {
                 className={styles.allCommentsContainer}>
 
                 {postState.comments.length == 0 && <h2>No comments</h2>}
+
+                {postState.comments.lenngth != 0 && 
+                <div> 
+                  {postState.comments.map((comment) => {
+                    return(<p>{postComment.body}</p>)
+                  })}
+                </div>}
               
                 <div className={styles.postCommentContainer}>
                   <input type="" value={commentText} onChange={(e) => setCommentText(e.target.value)} placeholder='Write a comment...' />
                   <div onClick={async () => {
-                    // await dispatch(postComment({post_id: postState.postId, body: commentText}))
-                    // await dispatch(getAllComments({post_id: postState.postId}))
+                    await dispatch(postComment({post_id: postState.postId, body: commentText}))
+                    await dispatch(getAllComments({post_id: postState.postId}))
                   }} className={styles.postCommentContainer__commentBtn}>
                     <p>Comment</p>
                   </div>
