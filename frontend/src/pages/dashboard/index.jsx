@@ -134,22 +134,34 @@ export default function Dashboard() {
           {
             postState.postId !== "" && 
             <div
-            onClick={() => {
-              dispatch(resetPostId())
-            }}
-            className={styles.commentsContainer}>
+              onClick={() => {
+                dispatch(resetPostId())
+              }}
+              className={styles.commentsContainer}>
               <div
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
                 className={styles.allCommentsContainer}>
 
-                {postState.comments.length == 0 && <h2>No comments</h2>}
+                {postState.comments.length === 0 && <h2>No comments</h2>}
 
-                {postState.comments.lenngth != 0 && 
+                {postState.comments.length != 0 && 
                 <div> 
-                  {postState.comments.map((comment) => {
-                    return(<p>{postComment.body}</p>)
+                  {postState.comments.map((postComment, index) => {
+                    return(
+                      <div className={styles.singleComment} key={postComment._id}>
+                        <div className={styles.singleComment__profileContainer}>
+                          <img src={`${BASE_URL}/${postComment.userId.profilePicture}`} alt="" />
+           
+                          <div>
+                            <p style={{ fontWeight: "bold", fontSize: "1.2rem" }}>{postComment.userId.name}</p>
+                            <p style={{ color: "gray" }}>@{postComment.userId.username}</p>
+                          </div>
+                        </div>
+                        <p className={styles.singleComment__commentText}>{postComment.body}</p>
+                      </div>
+                    )
                   })}
                 </div>}
               
