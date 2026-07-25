@@ -5,6 +5,8 @@ import UserLayout from '@/layout/userLayout'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles.module.css'
+import { useRouter } from 'next/router';
+
 
 export default function Discover() {
   
@@ -17,6 +19,8 @@ export default function Discover() {
       dispatch(getAllUsers());
     }
   }, []);
+
+  const router = useRouter();
   
   return (
     <UserLayout>
@@ -27,7 +31,9 @@ export default function Discover() {
           <div className={styles.allUserProfile}>
             {authState.all_profiles_fetched && authState.all_users.map((user) => {
               return (
-                <div className={styles.userCard} key={user._id}>
+                <div onClick={() => {
+                   router.push(`/view_profile/${user.userId.username}`); 
+                }} className={styles.userCard} key={user._id}>
                   <img className={ styles.userCard__image} src={`${BASE_URL}/${user.userId.profilePicture}`} alt="profile" />
                   <div>
                     <h2>{user.userId.name}</h2>
