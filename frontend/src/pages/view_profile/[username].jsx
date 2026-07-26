@@ -1,11 +1,13 @@
 import {useSearchParams} from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function ViewProfilePage(){
 	const searchParams = useSearchParams();
 
+	useEffect(() => {
+		console.log("From view: View Profile Page");
+	});
 
-	console.log("View Profile Page");
 	return (
 		<div>
 			<h1>View Profile Page</h1>
@@ -14,6 +16,7 @@ export default function ViewProfilePage(){
 };
 
 export async function getServerSideProps() {
+	console.log("From view");
 	return {
 		props: {}, // will be passed to the page component as props
 	};
