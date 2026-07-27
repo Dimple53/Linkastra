@@ -1,7 +1,8 @@
+import { clientServer } from "@/config";
 import {useSearchParams} from "next/navigation";
 import React, { useEffect } from "react";
 
-export default function ViewProfilePage(){
+export default function ViewProfilePage({ userProfile }) {
 	const searchParams = useSearchParams();
 
 	useEffect(() => {
@@ -10,14 +11,24 @@ export default function ViewProfilePage(){
 
 	return (
 		<div>
-			<h1>View Profile Page</h1>
+			{userProfile.userId.name}
+
 		</div>
 	);
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
 	console.log("From view");
+	console.log(context.query.username);
+
+	const request = await clientServer.get("/user/get_profile_based_on_username", {
+		params: {
+			username: context.query.username,
+		},
+	});
+	const response = await request.data;
+	console.log(response);
 	return {
-		props: {}, // will be passed to the page component as props
+		props: { userProfile: request.data.profile}, // will be passed to the page component as props
 	};
 }
