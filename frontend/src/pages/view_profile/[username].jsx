@@ -1,4 +1,6 @@
 import { clientServer } from "@/config";
+import DashboardLayout from "@/layout/dashboardLayout";
+import UserLayout from "@/layout/userLayout";
 import {useSearchParams} from "next/navigation";
 import React, { useEffect } from "react";
 
@@ -10,10 +12,13 @@ export default function ViewProfilePage({ userProfile }) {
 	});
 
 	return (
-		<div>
-			{userProfile.userId.name}
-
-		</div>
+		<UserLayout>
+			<DashboardLayout>
+				<div>
+					{userProfile.userId.name}
+				</div>
+			</DashboardLayout>
+		</UserLayout>
 	);
 };
 
