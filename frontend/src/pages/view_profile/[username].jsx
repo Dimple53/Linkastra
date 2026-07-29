@@ -3,6 +3,7 @@ import DashboardLayout from "@/layout/dashboardLayout";
 import UserLayout from "@/layout/userLayout";
 import {useSearchParams} from "next/navigation";
 import React, { useEffect } from "react";
+import styles from "./styles.module.css";
 
 export default function ViewProfilePage({ userProfile }) {
 	const searchParams = useSearchParams();
@@ -14,8 +15,11 @@ export default function ViewProfilePage({ userProfile }) {
 	return (
 		<UserLayout>
 			<DashboardLayout>
-				<div>
+				{/* <div>
 					{userProfile.userId.name}
+				</div> */}
+				<div className={styles.container}>
+
 				</div>
 			</DashboardLayout>
 		</UserLayout>
