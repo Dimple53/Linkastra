@@ -1,4 +1,4 @@
-import { clientServer } from "@/config";
+import { BASE_URL, clientServer } from "@/config";
 import DashboardLayout from "@/layout/dashboardLayout";
 import UserLayout from "@/layout/userLayout";
 import {useSearchParams} from "next/navigation";
@@ -15,10 +15,11 @@ export default function ViewProfilePage({ userProfile }) {
 	return (
 		<UserLayout>
 			<DashboardLayout>
-				{/* <div>
-					{userProfile.userId.name}
-				</div> */}
 				<div className={styles.container}>
+					<div className={styles.backDropContainer}>
+						<img className={styles.backDropImage} src={`${BASE_URL}/${userProfile.userId.profilePicture}`} alt="backdrop" />
+
+					</div>
 
 				</div>
 			</DashboardLayout>
