@@ -20,6 +20,17 @@ export default function ViewProfilePage({ userProfile }) {
 						<img className={styles.backDropImage} src={`${BASE_URL}/${userProfile.userId.profilePicture}`} alt="backdrop" />
 
 					</div>
+					<div className={styles.profileContainer_details}>
+						<div styles={{display: "flex", gap:"0.7rem"}}>
+							<div styles={{ flex: "0.8" }}>
+
+							</div>
+							<div styles={{ flex: "0.2" }}>
+
+							</div>
+						</div>
+
+					</div>
 
 				</div>
 			</DashboardLayout>
