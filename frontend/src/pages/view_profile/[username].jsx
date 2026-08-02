@@ -25,7 +25,7 @@ export default function ViewProfilePage({ userProfile }) {
 							<div styles={{ flex: "0.8" }}>
 
 							</div>
-							<div styles={{ flex: "0.2" }}>
+							<div styles={{ display: "flex", width: "fit-content", alignItems: "center", gap: "1.2rem" }}>
 
 							</div>
 						</div>
