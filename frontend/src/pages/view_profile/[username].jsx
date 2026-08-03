@@ -26,6 +26,8 @@ export default function ViewProfilePage({ userProfile }) {
 
 							</div>
 							<div styles={{ display: "flex", width: "fit-content", alignItems: "center", gap: "1.2rem" }}>
+								<h2>{userProfile.userId.name}</h2>
+								<p style={{ color: "grey" }}>@{userProfile.userId.username}</p>
 
 							</div>
 						</div>
