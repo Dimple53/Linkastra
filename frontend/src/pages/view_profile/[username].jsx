@@ -4,9 +4,25 @@ import UserLayout from "@/layout/userLayout";
 import {useSearchParams} from "next/navigation";
 import React, { useEffect } from "react";
 import styles from "./styles.module.css";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllPosts } from "@/config/redux/action/postAction";
 
 export default function ViewProfilePage({ userProfile }) {
 	const searchParams = useSearchParams();
+	const router = useRouter();
+	const postReducer = useSelector((state) => state.postReducer);
+	const dispatch = useDispatch();
+
+	const authState = useSelector((state) => state.auth);
+
+	const [userPosts, setUserPosts] = useState([]);
+
+	const [isCurrentUserInConnection, setIsCurrentUserInConnection] = useState(false);
+
+	const getUserPost = async () => {
+		await dispatch(getAllPosts());
+	};
 
 	useEffect(() => {
 		console.log("From view: View Profile Page");
@@ -20,7 +36,7 @@ export default function ViewProfilePage({ userProfile }) {
 						<img className={styles.backDropImage} src={`${BASE_URL}/${userProfile.userId.profilePicture}`} alt="backdrop" />
 
 					</div>
-					<div className={styles.profileContainer_details}>
+					<div className={styles.profileContainer__details}>
 						<div styles={{display: "flex", gap:"0.7rem"}}>
 							<div styles={{ flex: "0.8" }}>
 
