@@ -22,6 +22,7 @@ export default function ViewProfilePage({ userProfile }) {
 
 	const getUserPost = async () => {
 		await dispatch(getAllPosts());
+		await(getConnectionsRequest({token: localStorage.getItem("token")}));
 	};
 
 	useEffect(() => {
