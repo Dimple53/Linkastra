@@ -26,6 +26,14 @@ export default function ViewProfilePage({ userProfile }) {
 	};
 
 	useEffect(() => {
+		let post = postReducer.posts.filter((post) => {
+
+		return post.userId.username === router.query.username;
+		});
+		setUserPosts(post);
+	})
+
+	useEffect(() => {
 		console.log("From view: View Profile Page");
 	});
 
