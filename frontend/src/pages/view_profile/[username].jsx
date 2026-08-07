@@ -31,7 +31,11 @@ export default function ViewProfilePage({ userProfile }) {
 		return post.userId.username === router.query.username;
 		});
 		setUserPosts(post);
-	})
+	}, [postReducer.posts]);
+
+	useEffect(() => {
+		console.log(authState.connections,userProfile.userId._id);
+	}, []);
 
 	useEffect(() => {
 		console.log("From view: View Profile Page");
