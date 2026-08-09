@@ -35,10 +35,12 @@ export default function ViewProfilePage({ userProfile }) {
 
 	useEffect(() => {
 		console.log(authState.connections,userProfile.userId._id);
-		postReducer.posts.filter((post) => {
-			return post.userId.username === router.query.username;
-		});
-	}, []);
+		if(authState.connections.some(user => user.connectionId._id === userProfile.userId._id)) {
+			setIsCurrentUserInConnection(true);
+		}
+	}, [authState.connections]);
+
+
 
 	useEffect(() => {
 		console.log("From view: View Profile Page");
