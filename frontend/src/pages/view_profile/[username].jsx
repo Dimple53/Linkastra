@@ -38,6 +38,9 @@ export default function ViewProfilePage({ userProfile }) {
 		if(authState.connections.some(user => user.connectionId._id === userProfile.userId._id)) {
 			setIsCurrentUserInConnection(true);
 		}
+		else {
+			setIsCurrentUserInConnection(false);
+		}
 	}, [authState.connections]);
 
 
