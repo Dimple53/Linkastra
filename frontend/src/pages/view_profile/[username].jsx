@@ -38,9 +38,6 @@ export default function ViewProfilePage({ userProfile }) {
 		if(authState.connections.some(user => user.connectionId._id === userProfile.userId._id)) {
 			setIsCurrentUserInConnection(true);
 		}
-		else {
-			setIsCurrentUserInConnection(false);
-		}
 	}, [authState.connections]);
 
 
@@ -58,15 +55,22 @@ export default function ViewProfilePage({ userProfile }) {
 
 					</div>
 					<div className={styles.profileContainer__details}>
-						<div styles={{display: "flex", gap:"0.7rem"}}>
-							<div styles={{ flex: "0.8" }}>
+						<div style={{display: "flex", gap:"0.7rem"}}>
+							<div style={{ flex: "0.8" }}>
 
 							</div>
-							<div styles={{ display: "flex", width: "fit-content", alignItems: "center", gap: "1.2rem" }}>
+							<div style={{ display: "flex", width: "fit-content", alignItems: "center", gap: "1.2rem" }}>
 								<h2>{userProfile.userId.name}</h2>
 								<p style={{ color: "grey" }}>@{userProfile.userId.username}</p>
 
 							</div>
+							{isCurrentUserInConnection ? 
+								<button className={styles.connectedButton}>Connected</button>
+								:
+								<button onclick={() => {
+									dispatch(sendConnectionRequest({token: localStorage.getItem("token"), connectionId: userProfile.userId._id}));
+							}} className={styles.connectBtn}>Connect</button>
+							}
 						</div>
 
 					</div>
