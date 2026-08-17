@@ -2,14 +2,15 @@ import { BASE_URL, clientServer } from "@/config";
 import DashboardLayout from "@/layout/dashboardLayout";
 import UserLayout from "@/layout/userLayout";
 import {useSearchParams} from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState} from "react";
 import styles from "./styles.module.css";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts } from "@/config/redux/action/postAction";
+import { getConnectionsRequest, sendConnectionRequest } from "@/config/redux/action/authAction";
 
 export default function ViewProfilePage({ userProfile }) {
-	const searchParams = useSearchParams();
+	// const searchParams = useSearchParams();
 	const router = useRouter();
 	const postReducer = useSelector((state) => state.postReducer);
 	const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export default function ViewProfilePage({ userProfile }) {
 
 	const getUserPost = async () => {
 		await dispatch(getAllPosts());
-		await(getConnectionsRequest({token: localStorage.getItem("token")}));
+		await dispatch(getConnectionsRequest({token: localStorage.getItem("token")}));
 	};
 
 	useEffect(() => {
@@ -67,7 +68,7 @@ export default function ViewProfilePage({ userProfile }) {
 							{isCurrentUserInConnection ? 
 								<button className={styles.connectedButton}>Connected</button>
 								:
-								<button onclick={() => {
+								<button onClick={() => {
 									dispatch(sendConnectionRequest({token: localStorage.getItem("token"), connectionId: userProfile.userId._id}));
 							}} className={styles.connectBtn}>Connect</button>
 							}
