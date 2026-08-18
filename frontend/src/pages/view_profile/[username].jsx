@@ -72,6 +72,10 @@ export default function ViewProfilePage({ userProfile }) {
 									dispatch(sendConnectionRequest({token: localStorage.getItem("token"), connectionId: userProfile.userId._id}));
 							}} className={styles.connectBtn}>Connect</button>
 							}
+							<div className="userProfile bio">
+								<p>{userProfile.userId.bio}</p>
+							</div>
+							<div style={{ flex: "0.2" }}><h3>Recent Activity</h3></div>
 						</div>
 
 					</div>
