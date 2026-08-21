@@ -75,7 +75,7 @@ export default function ViewProfilePage({ userProfile }) {
 							<div className="userProfile bio">
 								<p>{userProfile.userId.bio}</p>
 							</div>
-							<div style={{ flex: "0.8" }}><h3>Recent Activity</h3></div>
+							<div style={{ flex: "0.2" }}><h3>Recent Activity</h3></div>
 						</div>
 
 					</div>
