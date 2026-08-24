@@ -75,10 +75,25 @@ export default function ViewProfilePage({ userProfile }) {
 							<div className="userProfile bio">
 								<p>{userProfile.userId.bio}</p>
 							</div>
-							<div style={{ flex: "0.2" }}><h3>Recent Activity</h3></div>
+							<div style={{ flex: "0.2" }}><h3>Recent Activity</h3>
+								{userPosts.map((post) => {
+									return (
+										<div key={post._id} className={styles.postCard}>
+											<div className={styles.card}>
+												<div className={styles.card__profileContainer}>
+													{post.media !== "" ? <img src={`${BASE_URL}/${post.media}`} alt="" /> 
+													: 
+													<div style={{ width: "3.4rem", height: "3.4rem" }}></div>}
+												</div>
+												<p>{post.body}</p>
+											</div>
+										</div>
+									);
+								})}
+							</div>
 
 						</div>
-
+						
 					</div>
 
 				</div>
