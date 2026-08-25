@@ -21,7 +21,7 @@ export default function ViewProfilePage({ userProfile }) {
 
 	const [isCurrentUserInConnection, setIsCurrentUserInConnection] = useState(false);
 
-	const getUserPost = async () => {
+	const getUsersPost = async () => {
 		await dispatch(getAllPosts());
 		await dispatch(getConnectionsRequest({token: localStorage.getItem("token")}));
 	};
