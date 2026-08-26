@@ -7,7 +7,7 @@ import styles from "./styles.module.css";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts } from "@/config/redux/action/postAction";
-import { getConnectionsRequest, sendConnectionRequest } from "@/config/redux/action/authAction";
+// import { getConnectionsRequest, sendConnectionRequest } from "@/config/redux/action/authAction";
 
 export default function ViewProfilePage({ userProfile }) {
 	// const searchParams = useSearchParams();
@@ -29,10 +29,11 @@ export default function ViewProfilePage({ userProfile }) {
 	useEffect(() => {
 		let post = postReducer.posts.filter((post) => {
 
-		return post.userId.username === router.query.username;
+			return post.userId.username === router.query.username;
 		});
 		setUserPosts(post);
 	}, [postReducer.posts]);
+	
 
 	useEffect(() => {
 		console.log(authState.connections,userProfile.userId._id);
@@ -82,8 +83,8 @@ export default function ViewProfilePage({ userProfile }) {
 											<div className={styles.card}>
 												<div className={styles.card__profileContainer}>
 													{post.media !== "" ? <img src={`${BASE_URL}/${post.media}`} alt="" /> 
-													: 
-													<div style={{ width: "3.4rem", height: "3.4rem" }}></div>}
+														: 
+														<div style={{ width: "3.4rem", height: "3.4rem" }}></div>}
 												</div>
 												<p>{post.body}</p>
 											</div>

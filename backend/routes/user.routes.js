@@ -28,7 +28,8 @@ router.route('/user/download_resume').get(downloadProfile);
 router.route('/user/send_connection_request').post(sendConnectionRequest);
 router.route('/user/getConnectionRequests').get(getMyConnectionRequests);
 router.route('/user/user_connection_requests').get(myConnections);
-router.route('/user/respond_to_connection_request').post(respondToConnectionRequest);
+router.route('/user/respond_to_connection_request').post(respondToConnectionRequest);//accept connection request
 router.route('/user/get_profile_based_on_username').get(getUserProfileAndUserBasedOnUsername);
+// router.route('/user/accept_connection_request').post(acceptConnectionRequest);
 
 export default router;
