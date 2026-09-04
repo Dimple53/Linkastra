@@ -62,9 +62,10 @@
     padding-inline: 0.8rem;
     border-radius: 10px;
     border: solid;
-    outline: none;
+    outline: white;
     color: red;
     cursor: pointer;
     opacity: 0.5;
     text-align: center;
+
 }
