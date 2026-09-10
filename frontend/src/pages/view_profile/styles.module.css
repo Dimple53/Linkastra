@@ -72,5 +72,6 @@
     transition: all 0.3s ease-in-out;
     transform: scale(1);
     top: 0;
+    transform-origin: 0% 0%;
 
 }
