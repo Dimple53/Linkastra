@@ -76,5 +76,5 @@
     text-overflow: clip;
     text-transform: none;
     touch-action: auto;
-
+    y-overflow: visible;
 }
