@@ -77,4 +77,5 @@
     text-transform: none;
     touch-action: auto;
     y-overflow: visible;
+    z-index: auto;
 }
