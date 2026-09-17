@@ -26,6 +26,7 @@ export default function ViewProfilePage({ userProfile }) {
 	const getUsersPost = async () => {
 		await dispatch(getAllPosts());
 		await dispatch(getConnectionsRequest({token: localStorage.getItem("token")}));
+		await dispatch(getMyConnectionRequest({token: localStorage.getItem("token")}));
 	};
 
 	useEffect(() => {
@@ -45,7 +46,13 @@ export default function ViewProfilePage({ userProfile }) {
 				setIsConnectionNull(false);
 			} 
 		}
-	}, [authState.connections]);
+		if(authState.connectionRequest.some(user => user.userId._id === userProfile.userId._id)) {
+			setIsCurrentUserInConnection(true);
+			if(authState.connectionRequest.find(user => user.userId._id === userProfile.userId._id).status_accepted === true) {
+				setIsConnectionNull(false);
+			} 
+		}
+	}, [authState.connections, authState.connectionRequest]);
 
 	useEffect(() => {
 		getUsersPost();

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { login, register, uploadProfilePicture, updateUserProfile, getUserAndProfile, updateProfileData, getAllUserProfile, downloadProfile, sendConnectionRequest, myConnections, getMyConnectionRequests, respondToConnectionRequest, getUserProfileAndUserBasedOnUsername } from "../controllers/user.controller.js";
+import { login, register, uploadProfilePicture, updateUserProfile, getUserAndProfile, updateProfileData, getAllUserProfile, downloadProfile, sendConnectionRequest, myConnections, getMyConnectionRequests, respondToConnectionRequest, getUserProfileAndUserBasedOnUsername, AcceptConnection } from "../controllers/user.controller.js";
 import multer from "multer";
 
 const router = Router();
@@ -30,6 +30,6 @@ router.route('/user/getConnectionRequests').get(getMyConnectionRequests);
 router.route('/user/user_connection_requests').get(myConnections);
 router.route('/user/respond_to_connection_request').post(respondToConnectionRequest);//accept connection request
 router.route('/user/get_profile_based_on_username').get(getUserProfileAndUserBasedOnUsername);
-// router.route('/user/accept_connection_request').post(acceptConnectionRequest);
+router.route('/user/accept_connection_request').post(AcceptConnection);
 
 export default router;
