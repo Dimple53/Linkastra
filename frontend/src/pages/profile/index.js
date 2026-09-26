@@ -42,7 +42,13 @@ export default function ProfilePage() {
             {authState.user && userProfile.userId &&
             <div className={styles.container}>
 					<div className={styles.backDropContainer}>
-						<img className={styles.backDrop} src={`${BASE_URL}/${userProfile.userId.profilePicture}`} alt="backdrop" />
+						<label htmlFor="profilePictureUpload" className={styles.backDrop__Overlay}>
+							<p>
+								Edit
+							</p>
+						</label>
+						<input type="file" id="profilePictureUpload"/>
+						<img src={`${BASE_URL}/${userProfile.userId.profilePicture}`} alt="backdrop" />
 
 					</div>
 					<div className={styles.profileContainer__details}>
