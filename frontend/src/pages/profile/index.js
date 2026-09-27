@@ -4,7 +4,7 @@ import React, { use } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAboutUser } from "@/config/redux/action/authAction";
 import styles from "./styles.module.css";
-import { BASE_URL } from "@/config";
+import { BASE_URL, clientServer } from "@/config";
 import { useEffect, useState } from "react";
 export default function ProfilePage() {
 
@@ -34,6 +34,18 @@ export default function ProfilePage() {
         }
     }, [authState.user, postReducer.posts]);
 
+	const updateProfilePicture = async (file) => {
+		const formData = new FormData();
+		formData.append("profile_picture", file);
+		formData.append("token", localStorage.getItem("token"));
+
+		const response = await clientServer.post("/update_profile_picture", formData, {
+			headers: {
+				"Content-Type": "multipart/form-data",
+			},
+		});
+		dispatch(getAboutUser({ token: localStorage.getItem("token") }));
+	}
   
 
     return ( 
@@ -47,7 +59,9 @@ export default function ProfilePage() {
 								Edit
 							</p>
 						</label>
-						<input type="file" id="profilePictureUpload"/>
+						<input onChange={(e)=>{
+							updateProfilePicture (e.target.files[0])
+						}} hidden type="file" id="profilePictureUpload"/>
 						<img src={`${BASE_URL}/${userProfile.userId.profilePicture}`} alt="backdrop" />
 
 					</div>
