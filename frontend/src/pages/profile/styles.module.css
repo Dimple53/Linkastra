@@ -74,8 +74,8 @@
     opacity: 0.8;
     background: black;
     top: 5px;
-   
     border-radius: 50%;
+    text-shadow: none;
 }
 
 .connectBtn{
