@@ -78,6 +78,7 @@
     text-shadow: none;
     transition: all 0.4s;
     text-decoration: none;
+    overflow-y: hidden;
 }
 
 .connectBtn{
