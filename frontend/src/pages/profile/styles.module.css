@@ -80,6 +80,7 @@
     text-decoration: none;
     overflow-y: hidden;
     user-select: none;
+    y: calc(5px);
 }
 
 .connectBtn{
