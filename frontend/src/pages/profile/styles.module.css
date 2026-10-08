@@ -83,6 +83,7 @@
     y: calc(5px);
     overflow-y: auto;
     text-shadow: none;
+    overflow-y: auto;
 }
 
 .connectBtn{
