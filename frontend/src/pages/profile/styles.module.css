@@ -85,6 +85,7 @@
     text-shadow: none;
     overflow-y: auto;
     user-select: none;
+    overscroll-behavior-y: auto;
 }
 
 .connectBtn{
