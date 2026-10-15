@@ -90,6 +90,7 @@
     right: calc(5px);
     rotate: calc(4px);
     row-gap: calc(6px);
+    reading-flow: flex-flow;
 }
 
 .connectBtn{
