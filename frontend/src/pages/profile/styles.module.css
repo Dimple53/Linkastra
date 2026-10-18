@@ -93,6 +93,7 @@
     reading-flow: flex-flow;
     empty-cells: show;
     reading-order: calc(3px);
+    resize: both;
 }
 
 .connectBtn{
