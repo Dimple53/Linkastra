@@ -95,6 +95,7 @@
     reading-order: calc(3px);
     resize: both;
     enable-background: accumulateS ;
+    text-rendering: auto;
 }
 
 .connectBtn{
