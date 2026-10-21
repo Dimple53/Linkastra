@@ -73,29 +73,6 @@
 .backDrop__Overlay:hover{
     opacity: 0.8;
     background: black;
-    top: 5px;
-    border-radius: 50%;
-    text-shadow: none;
-    transition: all 0.4s;
-    text-decoration: none;
-    overflow-y: hidden;
-    user-select: none;
-    y: calc(5px);
-    overflow-y: auto;
-    text-shadow: none;
-    overflow-y: auto;
-    user-select: none;
-    overscroll-behavior-y: auto;
-    excess: hidden;
-    right: calc(5px);
-    rotate: calc(4px);
-    row-gap: calc(6px);
-    reading-flow: flex-flow;
-    empty-cells: show;
-    reading-order: calc(3px);
-    resize: both;
-    enable-background: accumulateS ;
-    text-rendering: auto;
 }
 
 .connectBtn{
@@ -129,9 +106,34 @@
 }
 
 .workHistoryCard{
-   min-width: fit-content;
-   padding-inline: 2.5rem;
-   padding-block: 1rem;
-   border-radius: 10px;
-   box-shadow: 10px 10px 15px rgb(173, 173, 173);
+    min-width: fit-content;
+    padding-inline: 2.5rem;
+    padding-block: 1rem;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgb(173, 173, 173);
+}
+
+.profileContainer__details input {
+    outline: none;
+    border-style: none;
+    padding-inline: 10px;
+    padding-block: 9px;
+    width: fit-content;
+}
+
+.nameEdit {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.updateProfileBtn{
+    background: rgb(3, 93, 183, 0.905);
+    padding-block: 0.3rem;
+    padding-inline: 0.8rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    width: fit-content;
 }

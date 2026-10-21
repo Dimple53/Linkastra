@@ -46,7 +46,22 @@ export default function ProfilePage() {
 		});
 		dispatch(getAboutUser({ token: localStorage.getItem("token") }));
 	}
-  
+	
+	const updateProfileData = async () => {
+		const request = await clientServer.post("/update_update", {
+			token: localStorage.getItem("token"),
+			name: userProfile.userId.name,
+		});
+
+		const response = await clientServer.post("/update_profile_data", {
+			token: localStorage.getItem("token"),
+			bio: userProfile.userId.bio,
+			currentPost: userProfile.userId.currentPost,
+			pastWork: userProfile.pastWork,
+			education: userProfile.education,
+		});
+		dispatch(getAboutUser({ token: localStorage.getItem("token") }));
+	}
 
     return ( 
         <UserLayout>
@@ -69,17 +84,20 @@ export default function ProfilePage() {
 						<div style={{display: "flex", gap:"0.7rem"}}>
 							<div style={{ flex: "0.8" }}>
 
-							</div>
-							<div style={{ display: "flex", width: "fit-content", alignItems: "center", gap: "1.2rem" }}>
-								<h2>{userProfile.userId.name}</h2>
-								<p style={{ color: "grey" }}>@{userProfile.userId.username}</p>
-
-							</div>
-						
 							
+								<div style={{ display: "flex", width: "fit-content", alignItems: "center", gap: "1.2rem" }}>
+									<input className={styles.nameEdit} type="text" value={userProfile.userId.name} onChange={(e) =>{
+										setUserProfile({...userProfile, userId: {...userProfile.userId, name: e.target.value} })
+									}} />
+									<p style={{ color: "grey" }}>@{userProfile.userId.username}</p>
 
-							<div className="userProfile bio">
-								<p>{userProfile.userId.bio}</p>
+								</div>
+							
+								
+
+								<div className="userProfile bio">
+									<p>{userProfile.userId.bio}</p>
+								</div>
 							</div>
 							<div style={{ flex: "0.2" }}><h3>Recent Activity</h3>
 								{userPosts.map((post) => {
@@ -118,6 +136,14 @@ export default function ProfilePage() {
 							}
 						</div>
 					</div>
+
+					{userProfile != authState.user && (
+						<div onClick={() => {
+							updateProfileData();
+						}} className={styles.updateProfileBtn} >
+							Update Profile
+						</div>
+					)}
 				</div>
             }
           </DashboardLayout>
