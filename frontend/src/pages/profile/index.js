@@ -95,8 +95,14 @@ export default function ProfilePage() {
 							
 								
 
-								<div className="userProfile bio">
-									<p>{userProfile.userId.bio}</p>
+								<div>
+									<textarea 
+									  value={userProfile.userId.bio}
+									  onChange={(e) => {
+										setUserProfile({...userProfile, userId: {...userProfile.userId, bio: e.target.value} })
+									  }}
+									  rows={Math.max(3, Math.ceil(userProfile.userId.bio.length / 80))}// Adjust the number of rows based on the length of the bio
+									/>
 								</div>
 							</div>
 							<div style={{ flex: "0.2" }}><h3>Recent Activity</h3>

@@ -124,6 +124,7 @@
 .nameEdit {
     font-size: 1.5rem;
     font-weight: bold;
+    font: 1em sans-serif;
 }
 
 .updateProfileBtn{
