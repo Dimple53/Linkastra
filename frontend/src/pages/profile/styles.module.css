@@ -126,6 +126,7 @@
     font-weight: bold;
     font: 1em sans-serif;
     resize: none;
+    right: 0;
 }
 
 .updateProfileBtn{
