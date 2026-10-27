@@ -129,6 +129,7 @@
     right: 0;
     rotate: calc(2px);
     line-height: 1.5rem;
+    top: 0;
 }
 
 .updateProfileBtn{
