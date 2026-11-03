@@ -136,6 +136,7 @@
     background-color: aliceblue;
     text-decoration: dashed;
     padding: 0.5rem;
+    user-select: all;
 }
 
 .updateProfileBtn{
