@@ -137,6 +137,7 @@
     text-decoration: dashed;
     padding: 0.5rem;
     user-select: all;
+    text-shadow: 5px 5px 5px rgb(3, 93, 183, 0.905);
 }
 
 .updateProfileBtn{
