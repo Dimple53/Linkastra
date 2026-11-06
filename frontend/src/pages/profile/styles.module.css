@@ -139,6 +139,7 @@
     user-select: all;
     text-shadow: 5px 5px 5px rgb(3, 93, 183, 0.905);
     width: 100%;
+    nav-up: auto;
 }
 
 .updateProfileBtn{
