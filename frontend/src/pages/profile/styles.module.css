@@ -141,6 +141,7 @@
     width: 100%;
     nav-up: auto;
     object-fit: contain;
+    background-position-y: bottom;
 }
 
 .updateProfileBtn{
