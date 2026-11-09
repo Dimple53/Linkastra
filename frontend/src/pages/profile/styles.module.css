@@ -142,6 +142,7 @@
     nav-up: auto;
     object-fit: contain;
     background-position-y: bottom;
+    y-overflow-anchor: auto;
 }
 
 .updateProfileBtn{
