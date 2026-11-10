@@ -140,6 +140,10 @@ export default function ProfilePage() {
 									);
 								})
 							}
+
+							<button className={styles.addWorkButton} onClick={() => {
+
+							}}>Add Work Experience</button>
 						</div>
 					</div>
 
