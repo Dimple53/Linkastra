@@ -18,6 +18,8 @@ export default function ProfilePage() {
 
     const [userPosts, setUserPosts] = useState([]);
 
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
     useEffect(() => {
        dispatch(getAboutUser({ token: localStorage.getItem("token") }));
        dispatch(getAllPosts());
@@ -156,6 +158,23 @@ export default function ProfilePage() {
 					)}
 				</div>
             }
+
+ 			{
+				isModalOpen && 
+				<div
+					onClick={() => {
+						dispatch(resetPostId())
+					}}
+					className={styles.commentsContainer}>
+					<div
+						onClick={(e) => {
+						e.stopPropagation();
+						}}
+						className={styles.allCommentsContainer}>
+					</div>
+				</div>
+			}			
+
           </DashboardLayout>
         </UserLayout>   
         
