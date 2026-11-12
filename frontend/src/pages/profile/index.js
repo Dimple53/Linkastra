@@ -163,7 +163,7 @@ export default function ProfilePage() {
 				isModalOpen && 
 				<div
 					onClick={() => {
-						dispatch(resetPostId())
+						setIsModalOpen(false);
 					}}
 					className={styles.commentsContainer}>
 					<div
@@ -171,6 +171,25 @@ export default function ProfilePage() {
 						e.stopPropagation();
 						}}
 						className={styles.allCommentsContainer}>
+
+						<input 
+							onChange={(e) => setPassword(e.target.value)}
+							className={styles.inputField} 
+							type="password" 
+							placeholder='Enter Company Name' 
+						/>
+						<input 
+							onChange={(e) => setPassword(e.target.value)}
+							className={styles.inputField} 
+							type="password" 
+							placeholder='Enter Position' 
+						/>
+						<input 
+							onChange={(e) => setPassword(e.target.value)}
+							className={styles.inputField} 
+							type="number" 
+							placeholder='Years of Experience' 
+						/>
 					</div>
 				</div>
 			}			
