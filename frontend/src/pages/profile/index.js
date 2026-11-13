@@ -190,6 +190,7 @@ export default function ProfilePage() {
 							type="number" 
 							placeholder='Years of Experience' 
 						/>
+						<div className={styles.updateProfileBtn}>Add Work Experience</div>
 					</div>
 				</div>
 			}			
