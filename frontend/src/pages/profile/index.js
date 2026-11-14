@@ -20,6 +20,18 @@ export default function ProfilePage() {
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
+	const [inputData, setInputData] = useState({
+		company: "",
+		position: "",
+		years: "",
+	});
+
+	const handleWorkInputChange = (e) => {
+		const { name, value } = e.target;
+		setInputData({...inputData, [name]: value,
+		});	
+	};
+
     useEffect(() => {
        dispatch(getAboutUser({ token: localStorage.getItem("token") }));
        dispatch(getAllPosts());
@@ -173,24 +185,30 @@ export default function ProfilePage() {
 						className={styles.allCommentsContainer}>
 
 						<input 
-							onChange={(e) => setPassword(e.target.value)}
+							onChange={handleWorkInputChange}
+							name="company"
 							className={styles.inputField} 
 							type="password" 
 							placeholder='Enter Company Name' 
 						/>
 						<input 
-							onChange={(e) => setPassword(e.target.value)}
+							onChange={handleWorkInputChange}
+							name="position"
 							className={styles.inputField} 
 							type="password" 
 							placeholder='Enter Position' 
 						/>
 						<input 
-							onChange={(e) => setPassword(e.target.value)}
+							onChange={handleWorkInputChange}
+							name="years"
 							className={styles.inputField} 
 							type="number" 
 							placeholder='Years of Experience' 
 						/>
-						<div className={styles.updateProfileBtn}>Add Work Experience</div>
+						<div onClick={() => (
+							setUserProfile({...userProfile, pastWork: [...userProfile.pastWork, inputData]}),
+							setIsModalOpen(false)
+						)} className={styles.updateProfileBtn}>Add Work Experience</div>
 					</div>
 				</div>
 			}			
