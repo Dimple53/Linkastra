@@ -194,4 +194,8 @@
   border-radius: 10px;
   width: 100%;
   top: 0;
+  input::placeholder{
+    font-family: "Poppins" !important;
+  }
+  text-align: center;
 }
