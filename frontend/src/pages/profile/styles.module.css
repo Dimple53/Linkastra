@@ -200,4 +200,5 @@
   text-align: center;
   resize: none;
   transform: matrix(1, 0, 0, 1, 0, 0);
+  text-shadow: none;
 }
